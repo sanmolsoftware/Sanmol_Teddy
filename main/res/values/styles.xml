@@ -940,11 +940,13 @@
         <item name="android:textSize">17sp</item>
         <item name="android:textStyle">bold</item>
     </style>
+
     <style name="cashstar_egiftcard_subtitle_style">
         <item name="android:textColor">#EF426D</item>
         <item name="android:textSize">26sp</item>
         <item name="android:textStyle">bold</item>
     </style>
+
     <style name="cashstar_egiftcard_message_style">
         <item name="android:textColor">@color/olapic_detail_caption</item>
         <item name="android:textSize">17sp</item>

@@ -36,6 +36,7 @@ import com.ulta.core.activity.UltaBaseActivity;
 import com.ulta.core.activity.checkout.AddShippingAddressLogginUserActivity;
 import com.ulta.core.activity.product.FreeSamplesActivity;
 import com.ulta.core.activity.product.HomeActivity;
+import com.ulta.core.activity.rewards.UltaMateCreditCardActivity;
 import com.ulta.core.bean.account.LoginBean;
 import com.ulta.core.bean.account.StateListBean;
 import com.ulta.core.bean.checkout.CheckoutShippmentMethodBean;
@@ -511,45 +512,6 @@ public class RegisterDetailsActivity extends UltaBaseActivity implements
 
     public static boolean validateDate(String dateofbirth) {
 
-//        Log.d("DateOfBirth", "" + dateofbirth);
-//
-//        String month = dateofbirth.substring(0, 2);
-//
-//        String day = dateofbirth.substring(2, dateofbirth.length());
-//
-////        Log.d("month1 , day1", ""+month1 + "   " + day1)
-//
-//        try {
-//
-//            int monthValue = Integer.parseInt(month);
-//            int dayValue = Integer.parseInt(day);
-//
-//            if (monthValue >= 1 && monthValue <= 12) {
-//
-//                if (month.length() < 2 || day.length() < 2) {
-//                    return false;
-//                } else {
-//
-//                    if (dayValue >= 1 && dayValue <= 31) {
-//                        if (day.equals("31")
-//                                && (month.equals("4") || month.equals("6")
-//                                || month.equals("9")
-//                                || month.equals("11")
-//                                || month.equals("04")
-//                                || month.equals("06") || month
-//                                .equals("09"))) {
-//                            return false;
-//                        } else if (dayValue > 29 && month.equals("02")) {
-//                            return false;
-//                        } else {
-//                            return true;
-//                        }
-//                    } else {
-//                        return false;
-//                    }
-//                }
-//            }
-
         try {
             String dateAndMonth[] = dateofbirth.split("/");
             if (dateAndMonth.length == 2) {
@@ -998,8 +960,15 @@ public class RegisterDetailsActivity extends UltaBaseActivity implements
 
                     ConversantUtility.loginTag(email);
                     String message = "Congratulations! You have activated your account. ";
-                    if ((sign || member) && errorMessage.isEmpty()) {
+//                        if ((sign || member) && errorMessage.isEmpty()) {
+//                            message = "Congratulations! You have activated your account and ULTA Rewards.";
+//                        } else if (!errorMessage.isEmpty()) {
+//                            message = message + errorMessage;
+//                        }
+                    if ((sign) && errorMessage.isEmpty()) {
                         message = "Congratulations! You have activated your account and ULTA Rewards.";
+                    } else if ((member) && errorMessage.isEmpty()) {
+                        message = "Congratulations! You have created your account and linked ultamate Rewards.";
                     } else if (!errorMessage.isEmpty()) {
                         message = message + errorMessage;
                     }
@@ -1630,4 +1599,13 @@ public class RegisterDetailsActivity extends UltaBaseActivity implements
 
         }
     };
+
+    @Override
+    public void onBagPressed() {
+        super.onBagPressed();
+
+        Intent ultamateCredtCardIntent = new Intent(RegisterDetailsActivity.this,
+                UltaMateCreditCardActivity.class);
+        startActivity(ultamateCredtCardIntent);
+    }
 }

@@ -33,7 +33,6 @@ import com.ulta.R;
 import com.ulta.core.activity.UltaBaseActivity;
 import com.ulta.core.activity.myprofile.FavoritesActivity;
 import com.ulta.core.activity.rewards.ClubUltaActivity;
-import com.ulta.core.activity.rewards.GiftCardsTabActivity;
 import com.ulta.core.activity.rewards.MobileOffersActivity;
 import com.ulta.core.activity.rewards.RewardsActivity;
 import com.ulta.core.bean.StatusOnlyResponseBean;
@@ -72,7 +71,7 @@ public class MyAccountActivity extends UltaBaseActivity implements
     /**
      * The lyt change password.
      */
-    LinearLayout llAddressLine2, main_layout, lytGiftCard, lytRewards,
+    LinearLayout llAddressLine2, main_layout, lytRewards,
             lytMyOrderHistory, lytMybeautyList, lytPreferredShippingAddress,
             lytPrefferedBillingaddress, lytPaymentMethod, lytChangePassword,
             lytMember, lytCoupons, lytPurchase, lytBeautyPreference;
@@ -129,7 +128,7 @@ public class MyAccountActivity extends UltaBaseActivity implements
 
     // private LinearLayout staySignedInLayout;
 
-    private View mGiftCardBalDividerView, above_mobile_divider;
+    private View above_mobile_divider;
 
     private SharedPreferences mMobileOfferSharedPreferences;
     private Button signOutBtn;
@@ -280,7 +279,7 @@ public class MyAccountActivity extends UltaBaseActivity implements
             if (getIntent().getExtras().getString("result3")
                     .equalsIgnoreCase("System")) {
                 /*
-				 * final AlertDialog alertDialog = new AlertDialog.Builder(
+                 * final AlertDialog alertDialog = new AlertDialog.Builder(
 				 * MyAccountActivity.this).create();
 				 * alertDialog.setTitle("Sorry"); alertDialog .setMessage(
 				 * "System Error adding Rewards member account, please try again later."
@@ -368,12 +367,10 @@ public class MyAccountActivity extends UltaBaseActivity implements
             lytPrefferedBillingaddress.setVisibility(View.VISIBLE);
             lytRewards.setVisibility(View.GONE);
             above_mobile_divider.setVisibility(View.GONE);
-            mGiftCardBalDividerView.setVisibility(View.GONE);
         } else {
             lytPrefferedBillingaddress.setVisibility(View.GONE);
             lytRewards.setVisibility(View.VISIBLE);
             above_mobile_divider.setVisibility(View.VISIBLE);
-            mGiftCardBalDividerView.setVisibility(View.VISIBLE);
         }
     }
 
@@ -387,7 +384,7 @@ public class MyAccountActivity extends UltaBaseActivity implements
      */
     private void setOnclickListeners() {
 
-        lytGiftCard.setOnClickListener(this);
+//        lytGiftCard.setOnClickListener(this);
         lytRewards.setOnClickListener(this);
         lytMyOrderHistory.setOnClickListener(this);
         lytMybeautyList.setOnClickListener(this);
@@ -421,7 +418,7 @@ public class MyAccountActivity extends UltaBaseActivity implements
     private void intViews() {
         lytBeautyPreference = (LinearLayout) findViewById(R.id.lytBeautyPreference);
         lytMember = (LinearLayout) findViewById(R.id.linearLayoutMember);
-        lytGiftCard = (LinearLayout) findViewById(R.id.lytGiftCard);
+//        lytGiftCard = (LinearLayout) findViewById(R.id.lytGiftCard);
         lytRewards = (LinearLayout) findViewById(R.id.lytRewards);
         lytMyOrderHistory = (LinearLayout) findViewById(R.id.lytMyOrderHistory);
         lytMybeautyList = (LinearLayout) findViewById(R.id.lytMybeautyList);
@@ -464,10 +461,9 @@ public class MyAccountActivity extends UltaBaseActivity implements
         tvCountryName.setTypeface(setHelveticaRegulartTypeFace());
         tvCityName.setTypeface(setHelveticaRegulartTypeFace());
         tvMember.setTypeface(setHelveticaRegulartTypeFace());
-        tvMembershipAccount.setTypeface(setHelveticaRegulartTypeFace());
-        tvUserNameText.setTypeface(setHelveticaRegulartTypeFace());
+        //       tvMembershipAccount.setTypeface(setHelveticaRegulartTypeFace());
+//        tvUserNameText.setTypeface(setHelveticaRegulartTypeFace());
         signOutBtn = (Button) findViewById(R.id.signOutBtn);
-        mGiftCardBalDividerView = (View) findViewById(R.id.giftCardBaldividerView);
 
         above_mobile_divider = (View) findViewById(R.id.above_mobile_divider);
 
@@ -484,11 +480,11 @@ public class MyAccountActivity extends UltaBaseActivity implements
 
         int id = v.getId();
         switch (id) {
-            case R.id.lytGiftCard:
-                Intent intentForGiftCard = new Intent(MyAccountActivity.this,
-                        GiftCardsTabActivity.class);
-                startActivity(intentForGiftCard);
-                break;
+//            case R.id.lytGiftCard:
+//                Intent intentForGiftCard = new Intent(MyAccountActivity.this,
+//                        GiftCardsTabActivity.class);
+//                startActivity(intentForGiftCard);
+//                break;
             case R.id.lytBeautyPreference:
                 creatingPageName(WebserviceConstants.ACCOUNT_BEAUTY_PREFRENCES);
                 Intent intentForBeautyPref = new Intent(MyAccountActivity.this,
@@ -881,7 +877,7 @@ public class MyAccountActivity extends UltaBaseActivity implements
                             beautyClubNumber);
 
                     balancePoints = profileBean.getBalancePoints();
-					/* gender = profileBean.getGender(); */
+                    /* gender = profileBean.getGender(); */
                     dateOfBirth = profileBean.getDateOfBirth();
                     firstName = profileBean.getFirstName();
                     homeAddress = profileBean.getHomeAddress();
@@ -912,12 +908,10 @@ public class MyAccountActivity extends UltaBaseActivity implements
             lytPrefferedBillingaddress.setVisibility(View.GONE);
             lytRewards.setVisibility(View.VISIBLE);
             above_mobile_divider.setVisibility(View.VISIBLE);
-            mGiftCardBalDividerView.setVisibility(View.VISIBLE);
             tvMember.setText(beautyClubNumber);
         } else {
             lytMember.setVisibility(View.GONE);
             lytRewards.setVisibility(View.GONE);
-            mGiftCardBalDividerView.setVisibility(View.VISIBLE);
         }
 
         if (firstName != null)
@@ -1133,7 +1127,7 @@ public class MyAccountActivity extends UltaBaseActivity implements
     }
 
 	/*
-	 * void toggleGcmRegistration(boolean isEnabled) { final boolean
+     * void toggleGcmRegistration(boolean isEnabled) { final boolean
 	 * isRegistered = !TextUtils.isEmpty(GCMRegistrar .getRegistrationId(this));
 	 * if (isEnabled) { if (!isRegistered) { // Register to GCM if we haven't
 	 * registered already GCMRegistrar.register(this,

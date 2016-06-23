@@ -4,10 +4,8 @@
 
 package com.ulta.core.activity;
 
-import android.Manifest;
 import android.app.Activity;
 import android.app.ActivityManager;
-import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.app.Service;
@@ -23,7 +21,6 @@ import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.database.Cursor;
 import android.graphics.Bitmap;
-import android.graphics.Color;
 import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.net.ConnectivityManager;
@@ -32,7 +29,6 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Message;
-import android.os.StrictMode;
 import android.provider.ContactsContract;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
@@ -44,7 +40,6 @@ import android.text.Editable;
 import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.TextWatcher;
-import android.text.style.ForegroundColorSpan;
 import android.text.style.RelativeSizeSpan;
 import android.util.Base64;
 import android.util.DisplayMetrics;
@@ -77,8 +72,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.androidquery.AQuery;
-import com.androidquery.callback.AjaxCallback;
-import com.androidquery.callback.AjaxStatus;
 import com.cashstar.ui.activity.AddCardActivity;
 import com.google.zxing.integration.android.IntentResult;
 import com.ulta.R;
@@ -103,7 +96,6 @@ import com.ulta.core.activity.rewards.NonSignedInRewardsActivity;
 import com.ulta.core.activity.rewards.UltaMateCreditCardActivity;
 import com.ulta.core.activity.stores.StoresActivity;
 import com.ulta.core.bean.StatusOnlyResponseBean;
-import com.ulta.core.bean.account.AppConfigurableBean;
 import com.ulta.core.bean.account.CreditCardInfoBean;
 import com.ulta.core.bean.account.LoginBean;
 import com.ulta.core.bean.account.PushNotificationBean;
@@ -132,8 +124,6 @@ import com.ulta.core.widgets.flyin.OnSearchPressedListener;
 import com.ulta.core.widgets.flyin.OnTitleBarPressed;
 import com.ulta.core.widgets.flyin.TitleBar;
 
-import java.io.InputStream;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
@@ -919,6 +909,27 @@ public class UltaBaseActivity extends ActionBarActivity implements
                         .findViewById(R.id.menu_string_new);
                 t1.setText(WebserviceConstants.ULTA_PHONE_NUMBER);
                 t1.setVisibility(View.VISIBLE);
+
+            }
+            if (options[position].contains("My Account")) {
+                TextView t = (TextView) itemLayout
+                        .findViewById(R.id.menu_string);
+                t.setText(options[position]);
+
+                TextView t1 = (TextView) itemLayout
+                        .findViewById(R.id.hiName);
+                String firstName = staySignedInSharedPreferences.getString(WebserviceConstants.STAY_SIGNED_IN_FIRST_NAME, " ");
+                if (firstName != null || !firstName.equals("") || firstName.length() > 0) {
+                    t1.setText("Hi, " + firstName+"!");
+                } else {
+                    t1.setText("Hi");
+                }
+                t1.setVisibility(View.VISIBLE);
+
+                TextView t2 = (TextView) itemLayout
+                        .findViewById(R.id.viewDetail);
+                t2.setText("View account detail!");
+                t2.setVisibility(View.VISIBLE);
 
             }
             if (options[position].contains("Gift Card Balance")) {

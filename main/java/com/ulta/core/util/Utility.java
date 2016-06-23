@@ -413,6 +413,7 @@ public class Utility {
         return retrieveFromSharedPreference(UltaConstants.PREFS_NAME,
                 retrievalKey, context);
     }
+
     /**
      * Common method for retrieve value from shared preference.
      *
@@ -421,7 +422,7 @@ public class Utility {
      * @return the string
      */
     public static Boolean retrieveBooleanFromSharedPreference(String retrievalKey,
-                                                      Context context) {
+                                                              Context context) {
         return getSharedPreference(UltaConstants.PREFS_NAME, context).getBoolean(
                 retrievalKey, true);
     }
@@ -465,6 +466,7 @@ public class Utility {
         saveToSharedPreference(UltaConstants.PREFS_NAME, keyForValueToSave,
                 valueToSave, context);
     }
+
     /**
      * Common method to save boolean value to shared preference.
      *
@@ -720,7 +722,7 @@ public class Utility {
 
                 String stringValidateString;
                 /*
-				 * Code breaks if this condition is not checked. As sometimes
+                 * Code breaks if this condition is not checked. As sometimes
 				 * the url fetched is of length <4
 				 */
                 if (len > 4) {
@@ -1113,6 +1115,7 @@ public class Utility {
                     break;
 
                 case 9:
+
                     homePageSectionIntent = new Intent(context,
                             OlapicActivity.class);
 
@@ -1140,7 +1143,6 @@ public class Utility {
                                             .setStreamId(streamId[0].trim());
                                 }
                             }
-
                         }
                     }
                     break;
@@ -1151,23 +1153,25 @@ public class Utility {
                             UltaConstants.REWARD_MEMBER, UltaConstants.ULTAMATE_CARD_TYPE,
                             context).trim().isEmpty()) {
 
-                        homePageSectionIntent = new Intent(context,
-                                WebViewActivity.class);
-                        homePageSectionIntent.putExtra("navigateToWebView",
-                                WebserviceConstants.FROM_ULTAMATE_CARD);
+                        homePageSectionIntent = new Intent(context, WebViewActivity.class);
+                        homePageSectionIntent.putExtra("navigateToWebView", WebserviceConstants.FROM_ULTAMATE_CARD);
                         homePageSectionIntent.putExtra("title", "ULTAMATE CREDITCARD");
+
                         if (null != UltaDataCache.getDataCacheInstance().getAppConfig()) {
                             if (Utility.retrieveFromSharedPreference(
                                     UltaConstants.REWARD_MEMBER, UltaConstants.ULTAMATE_CARD_TYPE,
                                     context).trim().equalsIgnoreCase("Ultamate Rewards Credit Card")) {
+                                Log.d("URL1", UltaDataCache.getDataCacheInstance().getAppConfig().getManageAccountPLCC());
                                 homePageSectionIntent.putExtra("url", UltaDataCache.getDataCacheInstance().getAppConfig().getManageAccountPLCC());
                             } else {
                                 //Ultamate Rewards MasterCard
+                                Log.d("URL2", UltaDataCache.getDataCacheInstance().getAppConfig().getManageAccountCBCC());
                                 homePageSectionIntent.putExtra("url", UltaDataCache.getDataCacheInstance().getAppConfig().getManageAccountCBCC());
                             }
                         }
 
                     } else {
+
                         homePageSectionIntent = new Intent(context,
                                 UltaMateCreditCardActivity.class);
                     }

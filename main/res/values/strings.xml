@@ -20,14 +20,18 @@
     <string name="year_prompt">Select Year</string>
 
     <string name="fragrance">Fragrance</string>
+    <!--http://photorankapi-a.akamaihd.net/streams/793242977/media/recent-->
+    <string name="olapic_service">//photorankapi-a.akamaihd.net/categories/23825/media/recent?</string>
+    <!--<string name="olapic_service">//photorankapi-a.akamaihd.net/streams/1165801176/media/recent?</string>-->
 
-    <string name="olapic_service">//photorankapi-a.akamaihd.net/streams/793242977/media/recent?</string>
     <!--<string name="olapic_service">//photorankapi-a.akamaihd.net/streams/%1$s/media/recent?</string>-->
     <string name="olapic_prod_details">//z4photorankapi-a.akamaihd.net/customers/216180/streams/search?</string>
     <string name="session_ok">OK</string>
     <string name="avatar_url">http://www.assemblergames.com/forums/avatars7/avatar74560_2.gif</string>
-    <string name="upload_image_url">//rest.photorank.me/users/%1$s/media?auth_token=35184924054d51039371a49df9c02bcda4613a636f7cb5223a0f08a19f9a0185&amp;version=v2.1</string>
-    <string name="stream_uri">//photorankapi-a.akamaihd.net/streams/%1$s</string>
+
+    <string name="upload_image_url">//rest.photorank.me/users/1165801176/media?auth_token=35184924054d51039371a49df9c02bcda4613a636f7cb5223a0f08a19f9a0185&amp;version=v2.2</string>
+    <!--<string name="stream_uri">//photorankapi-a.akamaihd.net/streams/793242977</string>-->
+    <string name="stream_uri">//photorankapi-a.akamaihd.net/streams/1165801176</string>
 
     <string name="search_keyword_item_num">Search Keyword / Item #</string>
     <string name="weekly_ad">CURRENT AD</string>

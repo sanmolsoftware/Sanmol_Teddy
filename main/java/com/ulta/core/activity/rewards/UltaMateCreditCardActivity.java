@@ -28,7 +28,6 @@ import com.ulta.R;
 import com.ulta.core.activity.UltaBaseActivity;
 import com.ulta.core.activity.account.LoginActivity;
 import com.ulta.core.activity.account.WebViewActivity;
-import com.ulta.core.bean.UltaBean;
 import com.ulta.core.bean.account.MyPurchasesBean;
 import com.ulta.core.bean.account.ProfileBean;
 import com.ulta.core.conf.UltaConstants;
@@ -105,9 +104,8 @@ public class UltaMateCreditCardActivity extends UltaBaseActivity implements View
     }
 
     private void checkImageVisibility() {
-        int height= mUltamate_creditcard_landing_image.getHeight();
-        if(height>100)
-        {
+        int height = mUltamate_creditcard_landing_image.getHeight();
+        if (height > 100) {
             mHyperlink.setVisibility(View.VISIBLE);
         }
     }
@@ -116,7 +114,16 @@ public class UltaMateCreditCardActivity extends UltaBaseActivity implements View
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.applyNow:
-                onApplyButtonClick();
+                if (null != Utility.retrieveFromSharedPreference(UltaConstants.REWARD_MEMBER, UltaConstants.ULTAMATE_CARD_TYPE, UltaMateCreditCardActivity.this) &&
+                        !Utility.retrieveFromSharedPreference(UltaConstants.REWARD_MEMBER, UltaConstants.ULTAMATE_CARD_TYPE, UltaMateCreditCardActivity.this).trim().isEmpty()) {
+
+                    Toast.makeText(UltaMateCreditCardActivity.this, "It looks like you already have an Ultamate Rewards credit card. For assistance, please call Guest Services at 1-866-983-8482.",
+                            Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(UltaMateCreditCardActivity.this, "It is new one! ",
+                            Toast.LENGTH_SHORT).show();
+                    onApplyButtonClick();
+                }
                 break;
             case R.id.manageAccount:
                 manageAccountButtonClick();
@@ -200,9 +207,10 @@ public class UltaMateCreditCardActivity extends UltaBaseActivity implements View
             applyNowWebView.putExtra("title", "ULTAMATE CREDITCARD");
             applyNowWebView.putExtra("url", url);
             startActivity(applyNowWebView);
-        } else {
-            showBottomSheet();
         }
+//        else {
+//            showBottomSheet();
+//        }
     }
 
 

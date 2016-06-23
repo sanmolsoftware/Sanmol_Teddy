@@ -3,8 +3,8 @@ package com.ulta.core.activity.product;
 import android.app.ActivityManager;
 import android.app.AlarmManager;
 import android.app.AlertDialog;
-import android.content.Context;
 import android.app.PendingIntent;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -13,6 +13,7 @@ import android.content.res.TypedArray;
 import android.graphics.Color;
 import android.graphics.Point;
 import android.graphics.Typeface;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -43,14 +44,12 @@ import android.widget.Toast;
 
 import com.androidquery.AQuery;
 import com.androidquery.util.AQUtility;
-
 import com.ulta.R;
 import com.ulta.core.Ulta;
 import com.ulta.core.activity.AlarmReceiver;
 import com.ulta.core.activity.AppRater;
 import com.ulta.core.activity.CustomGallery;
 import com.ulta.core.activity.UltaBaseActivity;
-import com.ulta.core.activity.account.MyAccountActivity;
 import com.ulta.core.activity.account.OlapicActivity;
 import com.ulta.core.activity.account.RegisterDetailsActivity;
 import com.ulta.core.activity.account.ShopListActivity;
@@ -82,7 +81,6 @@ import com.ulta.core.pushnotification.PushNotificationGCMRegister;
 import com.ulta.core.pushnotification.RegistrationIdInterface;
 import com.ulta.core.sessiontimeout.interfaces.OnSessionTimeOut;
 import com.ulta.core.util.ConversantUtility;
-
 import com.ulta.core.util.UltaException;
 import com.ulta.core.util.Utility;
 import com.ulta.core.util.caching.UltaDataCache;
@@ -677,6 +675,7 @@ public class HomeActivity extends UltaBaseActivity implements OnClickListener, O
                 break;
 
             case R.id.giftCard_layout:
+
                 Intent giftCardIntent = null;
                 giftCardIntent = new Intent(HomeActivity.this, WebViewActivity.class);
                 giftCardIntent.putExtra("navigateToWebView", WebserviceConstants.FROM_GIFT_CARD);
@@ -687,6 +686,7 @@ public class HomeActivity extends UltaBaseActivity implements OnClickListener, O
 
             case R.id.olapic_gallery_layout:
 
+                Toast.makeText(HomeActivity.this, "olapic_gallery_layout", Toast.LENGTH_SHORT).show();
                 Intent olapicIntent = new Intent(HomeActivity.this, OlapicActivity.class);
                 startActivity(olapicIntent);
 
@@ -809,7 +809,7 @@ public class HomeActivity extends UltaBaseActivity implements OnClickListener, O
                     homePageSectionInfo = ultaBean.getHomePageSectionSlotInfoV2();
                     LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
-
+                    Log.d("getTestStream", atgResponseBean.getTestStream());
                     if (null != atgResponseBean) {
                         UltaDataCache.getDataCacheInstance().setAppConfig(atgResponseBean);
                         String encryptionKey = atgResponseBean.getEncrpytion_Key();
@@ -818,8 +818,8 @@ public class HomeActivity extends UltaBaseActivity implements OnClickListener, O
 
                         String isFabricEnabled = atgResponseBean.getAndroidApp_Fabric();
 
-                        if(null!=atgResponseBean.getAndroidApp_CashStar() && atgResponseBean.getAndroidApp_CashStar().equalsIgnoreCase("true"))
-                             WebserviceConstants.isCashStarSDKEnabled= true;
+                        if (null != atgResponseBean.getAndroidApp_CashStar() && atgResponseBean.getAndroidApp_CashStar().equalsIgnoreCase("true"))
+                            WebserviceConstants.isCashStarSDKEnabled = true;
 
                         String isConversantTag = atgResponseBean.getAndroidApp_ConversantTag();
 
@@ -922,24 +922,21 @@ public class HomeActivity extends UltaBaseActivity implements OnClickListener, O
                                 @Override
                                 public void onClick(View v) {
                                     infoBean = homePageSectionInfo.get(ClickPosition);
-                                     // Enable the cash star sdk native page
-                                    Logger.Log("<LoginsActivity>service name :"+infoBean.getServiceName());
-                                    if ((infoBean.getServiceName().equalsIgnoreCase("gift card") || infoBean.getSlotDisplayName().equalsIgnoreCase("GIFT CARDS")) &&  WebserviceConstants.isCashStarSDKEnabled) {
 
-                                        homePageSectionIntent = new Intent(HomeActivity.this, CashStarHomeUI.class);
+                                    // Enable the cash star sdk native page
+                                    Logger.Log("<LoginsActivity>service name :" + infoBean.getServiceName());
+                                    if ((infoBean.getServiceName().equalsIgnoreCase("gift card") || infoBean.getSlotDisplayName().equalsIgnoreCase("GIFT CARDS")) && WebserviceConstants.isCashStarSDKEnabled) {
 
-                                    }
-                                    else if (infoBean.getServiceType().equalsIgnoreCase("webview"))
+                                        if (Build.VERSION.SDK_INT > Build.VERSION_CODES.KITKAT) {
+                                            homePageSectionIntent = new Intent(HomeActivity.this, CashStarHomeUI.class);
+                                        } else {
 
-                                    {
-                                        homePageSectionIntent = new Intent(HomeActivity.this, WebViewActivity.class);
-                                        homePageSectionIntent.putExtra("navigateToWebView",
-                                                WebserviceConstants.FROM_GIFT_CARD);
-                                        homePageSectionIntent.putExtra("title", "" + infoBean.getTitle());
-                                        homePageSectionIntent.putExtra("url", infoBean.getServiceParameters());
-
+                                            homePageSectionIntent = new Intent(HomeActivity.this, WebViewActivity.class);
+                                            homePageSectionIntent.putExtra("navigateToWebView", WebserviceConstants.FROM_GIFT_CARD);
+                                            homePageSectionIntent.putExtra("title", infoBean.getTitle());
+                                            homePageSectionIntent.putExtra("url", infoBean.getServiceParameters());
+                                        }
                                     } else {
-
                                         homePageSectionIntent = Utility.navigateToPage(HomeActivity.this,
                                                 infoBean.getServiceParameters(), infoBean);
                                     }
@@ -1449,11 +1446,11 @@ public class HomeActivity extends UltaBaseActivity implements OnClickListener, O
                                 if (null != mMobileCouponInfoAttributesBean) {
                                     String eCouponActive = mMobileCouponInfoAttributesBean.geteCouponActive();
 
-                    //                String couponActiveDate = mMobileCouponInfoAttributesBean.getCouponActive();
-                    //                String couponExpiryDate = mMobileCouponInfoAttributesBean.getCouponExpiry();
+                                    //                String couponActiveDate = mMobileCouponInfoAttributesBean.getCouponActive();
+                                    //                String couponExpiryDate = mMobileCouponInfoAttributesBean.getCouponExpiry();
 
                                     if (null != eCouponActive && eCouponActive.equalsIgnoreCase("Y")
-                                         //   && checkIfCouponHasExpired(couponActiveDate, couponExpiryDate)
+                                        //   && checkIfCouponHasExpired(couponActiveDate, couponExpiryDate)
                                             ) {
                                         if (null != mMobileCouponInfoBeanList.get(i).getPath()) {
                                             mobileOfferArray = mobileOfferArray

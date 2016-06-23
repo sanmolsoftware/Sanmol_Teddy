@@ -5,6 +5,7 @@ import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
@@ -16,7 +17,9 @@ import com.ulta.core.activity.UltaBaseActivity;
 import com.ulta.core.activity.product.CashStarHomeUI;
 import com.ulta.core.activity.product.UltaProductDetailsActivity;
 import com.ulta.core.activity.product.UltaProductListActivity;
+import com.ulta.core.conf.UltaConstants;
 import com.ulta.core.conf.WebserviceConstants;
+import com.ulta.core.util.Utility;
 import com.ulta.core.util.caching.UltaDataCache;
 import com.ulta.core.util.log.Logger;
 
@@ -56,6 +59,8 @@ public class WebViewActivity extends UltaBaseActivity {
                 mTitle = getIntent().getExtras().getString("title");
             }
         }
+
+        Log.d("mUrlFromIntent", "" + mUrlFromIntent);
         setTitle(mTitle);
         loadUrlInWebView();
 
@@ -73,7 +78,8 @@ public class WebViewActivity extends UltaBaseActivity {
                     case WebserviceConstants.FROM_ULTAMATE_CARD:
                         loadingLayout.setVisibility(View.GONE);
                         webView.setVisibility(View.VISIBLE);
-                        return false;
+                   //     performCreditShouldOverrideURlLoading(view, url);
+                        break;
 
                     case WebserviceConstants.FROM_BLACK_FRIDAY:
                         performWeeklyAdShouldOverrideURlLoading(view, url);
@@ -184,6 +190,27 @@ public class WebViewActivity extends UltaBaseActivity {
 
     }
 
+
+    public boolean performCreditShouldOverrideURlLoading(WebView view, String url) {
+
+        view.loadUrl(url);
+
+//              if (view.getUrl().toLowerCase().equals(UltaDataCache.getDataCacheInstance().getAppConfig().getManageAccountPLCC().toLowerCase()) ||
+//                view.getUrl().toLowerCase().equals(UltaDataCache.getDataCacheInstance().getAppConfig().getManageAccountCBCC().toLowerCase()) &&
+//                        null != Utility.retrieveFromSharedPreference(UltaConstants.REWARD_MEMBER, UltaConstants.ULTAMATE_CARD_TYPE, WebViewActivity.this) &&
+//                        !Utility.retrieveFromSharedPreference(UltaConstants.REWARD_MEMBER, UltaConstants.ULTAMATE_CARD_TYPE, WebViewActivity.this).trim().isEmpty()) {
+        if (null != Utility.retrieveFromSharedPreference(UltaConstants.REWARD_MEMBER, UltaConstants.ULTAMATE_CARD_TYPE, WebViewActivity.this) &&
+                !Utility.retrieveFromSharedPreference(UltaConstants.REWARD_MEMBER, UltaConstants.ULTAMATE_CARD_TYPE, WebViewActivity.this).trim().isEmpty()) {
+
+            finish();
+
+            return false;
+        }
+
+        return true;
+    }
+
+    //Fragrance WebView Action
     public boolean performFragranceShouldOverrideURlLoading(WebView view, String url) {
 
         view.loadUrl(url);

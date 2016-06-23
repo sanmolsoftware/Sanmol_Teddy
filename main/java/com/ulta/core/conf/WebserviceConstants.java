@@ -81,7 +81,9 @@ public class WebserviceConstants {
      */
     public static final String WEBSERVICES_FLAG = "WEBSERVICE";
 
-    /** The constant app_environment. */
+    /**
+     * The constant app_environment.
+     */
     public static final String APP_ENVIRONMENT = UltaDataCache
             .getDataCacheInstance().getAppEnvironment();
     /**
@@ -94,19 +96,29 @@ public class WebserviceConstants {
     public static final String WEBSERVICES_SERVER_ADDRESS = UltaDataCache
             .getDataCacheInstance().getServerAddress();
 
-    /** The SOLR context. */
+    /**
+     * The SOLR context.
+     */
     public static final String SOLR_CONTEXT = "solr";
 
-    /** The Constant for Default Buffer Size. */
+    /**
+     * The Constant for Default Buffer Size.
+     */
     public static final int BUFFER_BLOCK_SIZE = 2 * 1024;
 
-    /** Additional information google. */
+    /**
+     * Additional information google.
+     */
     public static final String ADDITIONAL_INFO_GOOGLE_API = "GOOGLE";
 
-    /** GOOGLE_APIS_CONTEXT. */
+    /**
+     * GOOGLE_APIS_CONTEXT.
+     */
     public static final String GOOGLE_MAP_API_CONTEXT = "maps.googleapis.com";
 
-    /** Ulta Phone number for contact */
+    /**
+     * Ulta Phone number for contact
+     */
     public static final String ULTA_PHONE_NUMBER = "866-983-8582";
 
     public static final String STAY_SIGNED_IN_SHAREDPREF = "staySignedIn";
@@ -173,7 +185,7 @@ public class WebserviceConstants {
     public static final String SHIPPING_INFO_LINK = "http://www.ulta.com/ulta/guestservices/guestServicesCenterDetails.jsp#ShippingPolicy";
 
     public static final String FRAGRANCE_URL = "http://www.ulta.com/fragrancefinder";
-	/*
+    /*
 	 * Server Address
 	 */
 
@@ -220,13 +232,17 @@ public class WebserviceConstants {
      */
     public static final boolean isCookieHandlingRequired = true;
 
-    /** The cookie name JSESSIONID used for session handling Expires : 30m in. */
+    /**
+     * The cookie name JSESSIONID used for session handling Expires : 30m in.
+     */
     public static final String SESSION_ID_COOKIE = "JSESSIONID";
     public static final String AO_COOKIE = "ao";
 
     public static final String EXPIRY_DATE = "expirydate";
 
-    /** SESSION_ID_COOKIE_EXPIRY time in seconds. */
+    /**
+     * SESSION_ID_COOKIE_EXPIRY time in seconds.
+     */
     public static final int SESSION_ID_COOKIE_EXPIRY = 30 * 60;
     /**
      * The cookie name DYN_USER_ID used for logged in user handling. Expires :
@@ -234,7 +250,9 @@ public class WebserviceConstants {
      */
     public static final String DYN_USER_ID_COOKIE = "DYN_USER_ID";
 
-    /** DYN_USER_ID_COOKIE time in seconds. */
+    /**
+     * DYN_USER_ID_COOKIE time in seconds.
+     */
     public static final int DYN_USER_ID_COOKIE_EXPIRY = 30 * 60 * 60 * 24;
     /**
      * The cookie name DYN_USER_CONFIRM used for handling the logged in user.
@@ -242,40 +260,64 @@ public class WebserviceConstants {
      */
     public static final String DYN_USER_CONFIRM_COOKIE = "DYN_USER_CONFIRM";
 
-    /** DYN_USER_CONFIRM_COOKIE time in seconds. */
+    /**
+     * DYN_USER_CONFIRM_COOKIE time in seconds.
+     */
     public static final int DYN_USER_CONFIRM_COOKIE_EXPIRY = 30 * 60 * 60 * 24;
 
-    /** expires - Cookie information. */
+    /**
+     * expires - Cookie information.
+     */
     public static final String EXPIRES_COOKIE = "expiry";
 
-    /** domain - Cookie Information. */
+    /**
+     * domain - Cookie Information.
+     */
     public static final String DOMAIN_COOKIE = "domain";
 
-    /** path - Cookie Information. */
+    /**
+     * path - Cookie Information.
+     */
     public static final String PATH_COOKIE = "path";
 
-    /** comment - Cookie Information. */
+    /**
+     * comment - Cookie Information.
+     */
     public static final String COMMENT_COOKIE = "comment";
 
-    /** max-age - Cookie Information. */
+    /**
+     * max-age - Cookie Information.
+     */
     public static final String MAX_AGE_COOKIE = "max-age";
 
-    /** secure - Cookie Information. */
+    /**
+     * secure - Cookie Information.
+     */
     public static final String SECURE_COOKIE = "secure";
 
-    /** name - Cookie Information. */
+    /**
+     * name - Cookie Information.
+     */
     public static final String NAME_COOKIE = "name";
 
-    /** value - Cookie Information. */
+    /**
+     * value - Cookie Information.
+     */
     public static final String VALUE_COOKIE = "value";
 
-    /** Version - Cookie Information. */
+    /**
+     * Version - Cookie Information.
+     */
     public static final String VERSION_COOKIE = "version";
 
-    /** Connection Timeout */
+    /**
+     * Connection Timeout
+     */
     public static final int CONNECTION_TIMEOUT_IN_MILLI = 10000;
 
-    /** Response Timeout */
+    /**
+     * Response Timeout
+     */
     public static final int RESPONSE_TIMEOUT_IN_MILLI = 10000;
 
     public static final String ERROR_FOR_NETWORK_CHECK = "1111~Network Unavailable";
@@ -359,94 +401,154 @@ public class WebserviceConstants {
 
     public static final String PUSH_NOTIFICATION_SERVICE = "ulta/mobile/profile/PushNotificationsPreferences/processPushNotificationsPreferences";
 
-    /** Service for fetching new arrivals */
+    /**
+     * Service for fetching new arrivals
+     */
     public static final String FETCH_NEW_ARRIVAL_ITEMS = "ulta/mobile/search/Search/fetchNewArrivals";
 
-    /** Service for getting app configurables */
+    /**
+     * Service for getting app configurables
+     */
     public static final String APPCONFIGURABLES_SERVICE = "ulta/mobile/AppConfigHomePageSectionSlotInfo?";
 
-    /** Service for getting the product details. */
+    /**
+     * Service for getting the product details.
+     */
     public static final String PRODUCTDETAILS_SERVICE = "ulta/mobile/catalog/MobileCatalogServices/fetchProductDetails?";
 
-    /** Service for email opt in. */
+    /**
+     * Service for email opt in.
+     */
     public static final String EMAIL_OPT_IN_SERVICE = "atg/userprofiling/B2CProfileFormHandler/subscribeEmail";
 
-    /** Service for login. */
+    /**
+     * Service for login.
+     */
     public static final String LOGIN_SERVICE = "atg/userprofiling/B2CProfileFormHandler/login";
 
-    /** Service for login. */
+    /**
+     * Service for login.
+     */
     public static final String USER_CREATION_SERVICE = "atg/userprofiling/B2CProfileFormHandler/ultaCreate";
 
-    /** Service for forgot password. */
+    /**
+     * Service for forgot password.
+     */
     public static final String FORGOT_PASSWORD_SERVICE = "atg/userprofiling/ForgotPasswordHandler/checkEmail";
 
-    /** Service for change password. */
+    /**
+     * Service for change password.
+     */
     public static final String CHANGE_PASSWORD_SERVICE = "atg/userprofiling/B2CProfileFormHandler/changePassword";
 
-    /** Service for logout. */
+    /**
+     * Service for logout.
+     */
     public static final String LOGOUT_SERVICE = "atg/userprofiling/B2CProfileFormHandler/logout";
 
-    /** Service for rewards. */
+    /**
+     * Service for rewards.
+     */
     public static final String REWARDS_SERVICE = "atg/userprofiling/MyAccount/rewardsDetails?";
 
-    /** Service for Activating Offer. */
+    /**
+     * Service for Activating Offer.
+     */
     public static final String ACTIVATE_OFFER = "ulta/loyalty/UltaLoyaltyFormHandler/activateOfferId";
 
-    /** Service for joining rewards. */
+    /**
+     * Service for joining rewards.
+     */
     public static final String JOIN_REWARDS = "ulta/loyalty/UltaLoyaltyFormHandler/joinRewardsProgram";
 
-    /** Service for coupon */
+    /**
+     * Service for coupon
+     */
     public static final String COUPON_SERVICE = "ulta/mobile/coupons/CouponXMLSaxParser/parseCouponXML";
 
-    /** Service for billing address. */
+    /**
+     * Service for billing address.
+     */
     public static final String BILLING_ADDRESS_SERVICE = "atg/userprofiling/MyAccount/billingAddress?";
 
-    /** Service for Commit Order service. */
+    /**
+     * Service for Commit Order service.
+     */
     public static final String CHECKOUT_SERVICE = "atg/commerce/order/purchase/CartModifierFormHandler/checkoutItems";
 
-    /** Service for shippment service. */
+    /**
+     * Service for shippment service.
+     */
     public static final String SHIPPMENT_SERVICE = "atg/commerce/order/purchase/ShippingGroupFormHandler/verifyShippingAddress";
 
-    /** Service for moveToBilling service. */
+    /**
+     * Service for moveToBilling service.
+     */
     public static final String MOVE_TO_BILLING_SERVICE = "atg/commerce/order/purchase/ShippingGroupFormHandler/moveToBilling";
 
-    /** Service for gift Option service. */
+    /**
+     * Service for gift Option service.
+     */
     public static final String GIFT_OPTION_SERVICE = "atg/commerce/order/purchase/CartModifierFormHandler/updateGiftServices";
 
-    /** Service for purchase history. */
+    /**
+     * Service for purchase history.
+     */
     public static final String PURCHASE_HISTORY = "ulta/mobile/profile/MyAccountPurchaseHistory/getTransactionHistory";
 
-    /** Service for payment service. */
+    /**
+     * Service for payment service.
+     */
     public static final String PAYMENT_SERVICE = "atg/commerce/order/purchase/PaymentGroupFormHandler/payment";
 
-    /** Service for slide show */
+    /**
+     * Service for slide show
+     */
     public static final String SLIDER_SERVICE = "ulta/mobile/slides/DisplaySlideShow/fetchSlides";
 
-    /** Service for slide show and mobile offers */
+    /**
+     * Service for slide show and mobile offers
+     */
     public static final String HOMEPAFEINFO_SERVICE = "ulta/mobile/homePageInfo?";
 
-    /** Service for slide show and mobile offers */
+    /**
+     * Service for slide show and mobile offers
+     */
     public static final String SHOP_PAGE_SLIDESHOW_SERVICE = "ulta/mobile/slides/ShopPageSlideShow/getBannerInfo";
 
-    /** Service for home page banner */
+    /**
+     * Service for home page banner
+     */
     public static final String HOME_PAGE_SECTION_INFO = "ulta/mobile/slides/HomePageSectionInfo/getBannerInfo";
 
-    /** Service for Promotions */
+    /**
+     * Service for Promotions
+     */
     public static final String PROMOTION = "ulta/mobile/catalog/MobileCatalogServices/getPromotions";
 
-    /** Service for Product Listing by Promo id */
+    /**
+     * Service for Product Listing by Promo id
+     */
     public static final String PRODUCT_LISTING_BY_PROMO_ID = "ulta/mobile/catalog/MobileCatalogServices/getProductListingByPromotion";
 
-    /** Service for Product Listing by Category id */
+    /**
+     * Service for Product Listing by Category id
+     */
     public static final String PRODUCT_LISTING_BY_CATEGORY_ID = "ulta/mobile/catalog/MobileCatalogServices";
 
-    /** Service for Commit Order service. */
+    /**
+     * Service for Commit Order service.
+     */
     public static final String COMMIT_ORDER_SERVICE = "atg/commerce/order/purchase/CommitOrderFormHandler/commitOrder";
 
-    /** Service for buy more save more promotions list */
+    /**
+     * Service for buy more save more promotions list
+     */
     public static final String BUY_MORE_SAVE_MORE = "ulta/mobile/catalog/MobileCatalogServices/getPromotions";
 
-    /**Webservice for credit card information Butterfly Authentiaction	 */
+    /**
+     * Webservice for credit card information Butterfly Authentiaction
+     */
 
     public static final String BUTTERFLY_CREDIT_CARD_INFO = "ulta/mobile/creditCardsInfo?";
 
@@ -472,76 +574,118 @@ public class WebserviceConstants {
 
     // fc7f57c502153ec0ffbc9cb0607ba9dc6c08ebdd4d0b088f80f84e0475ec5286
 
-    public static final String OLAPIC_UPLOAD_MEDIA_FIRST = "//rest.photorank.me/users?auth_token=35184924054d51039371a49df9c02bcda4613a636f7cb5223a0f08a19f9a0185&version=v2.1";
+    public static final String OLAPIC_UPLOAD_MEDIA_FIRST = "//rest.photorank.me/users?auth_token=35184924054d51039371a49df9c02bcda4613a636f7cb5223a0f08a19f9a0185&version=v2.2";
 
     // **************Start of New Web services for 3.2 release
     // ****************//
-    /** Service for Guest user login. */
+    /**
+     * Service for Guest user login.
+     */
     public static final String GUEST_USER_LOGIN_SERVICE = "atg/userprofiling/B2CProfileFormHandler/anonymousCheckout";
 
-    /** Service for beauty preferences category */
+    /**
+     * Service for beauty preferences category
+     */
     public static final String BEAUTY_PREF_SERVICE = "atg/userprofiling/B2CProfileFormHandler/newBeautyPreferences?";
 
-    /** Service for beauty preferences saving and updating */
+    /**
+     * Service for beauty preferences saving and updating
+     */
     public static final String SAVE_AND_UPDATE_BEAUTY_PREF_SERVICE = "atg/userprofiling/B2CProfileFormHandler/updateNewBeautyPreferences";
 
-    /** Service to update beauty preferences */
+    /**
+     * Service to update beauty preferences
+     */
     public static final String UPDATE_BEAUTY_PREFERENCES = "atg/userprofiling/B2CProfileFormHandler/updateBeautyPreferences";
 
-    /** Service to get the list of beauty preferences */
+    /**
+     * Service to get the list of beauty preferences
+     */
     public static final String FETCH_BEAUTY_PREFERENCES = "atg/userprofiling/B2CProfileFormHandler/beautyPreferences?";
 
-    /** Service for Anonymous User's Fetch Order Status. */
+    /**
+     * Service for Anonymous User's Fetch Order Status.
+     */
     public static final String FETCH_ORDER_DETAILS = "ulta/mobile/order/OrderHistory/fetchAnonymousOrderHistory";
 
-    /** Service for Anonymous User's Fetch Order Details. */
+    /**
+     * Service for Anonymous User's Fetch Order Details.
+     */
     public static final String FETCH_ANONYMOUS_ORDER_DETAILS = "atg/commerce/ShoppingCart/fetchAnonymousOrderDetails";
 
-    /** Service for Commit Order service. */
+    /**
+     * Service for Commit Order service.
+     */
     public static final String VERIFY_ADDRESS_AND_COMMIT_ORDER_SERVICE = "atg/commerce/order/purchase/CommitOrderFormHandler/verifyAddressAndCommitOrder";
 
-    /** Service for Commit Order service. */
+    /**
+     * Service for Commit Order service.
+     */
     public static final String GET_ENTERED_SHIPPING_ADDRESS = "ulta/util/AddressUtil/getEnteredShipAddress";
 
-    /** Service for Commit Order service. */
+    /**
+     * Service for Commit Order service.
+     */
     public static final String GET_VERIFIED_SHIPPING_ADDRESS = "ulta/util/AddressUtil/getAddressesOnShipment?";
 
-    /** Verify Shipping Address. */
+    /**
+     * Verify Shipping Address.
+     */
     public static final String VERIFY_SHIPPING_ADDRESS = "ulta/util/AddressUtil/getAddressesOnShipment";
 
-    /** New service to keep the address and move to shipping method. */
+    /**
+     * New service to keep the address and move to shipping method.
+     */
 
     public static final String KEEP_EXISTING_ADDRESS_AND_MOVE_TO_SHIPPING_METHOD = "atg/commerce/order/purchase/ShippingGroupFormHandler/keepEnteredShippingAddress";
 
-    /** New Service for updating verified address. */
+    /**
+     * New Service for updating verified address.
+     */
     public static final String UPDATE_VERIFIED_ADDRESS_AND_MOVE_TO_SHIPPING_METHOD = "atg/commerce/order/purchase/ShippingGroupFormHandler/setVerifiedShippingAddress";
 
-    /** Service for Commit Order service. */
+    /**
+     * Service for Commit Order service.
+     */
     public static final String KEEP_ADDRESS_AND_COMMIT_SERVICE = "atg/commerce/order/purchase/CommitOrderFormHandler/keepAddressAndCommitOrder";
 
-    /** Service for Commit Order service. */
+    /**
+     * Service for Commit Order service.
+     */
     public static final String SET_ADDRESS_AND_COMMIT_SERIVICE = "atg/commerce/order/purchase/CommitOrderFormHandler/setAddressAndCommitOrder";
 
     // **************End of New Web services for 3.2 release ****************//
 
     // **************Start of New Web services for 3.3 release
     // ****************//
-    /** Service for fetching on sale items */
+    /**
+     * Service for fetching on sale items
+     */
     public static final String FETCH_ONSALE_ITEMS = "ulta/mobile/search/Search/fetchOnSaleItems";
 
-    /** Service to verify paypal payment status */
+    /**
+     * Service to verify paypal payment status
+     */
     public static final String PAYPAL_VERIFICATION_STATUS_SERVICE = "ulta/mobile/paypal/payment/MobilePayPalPayment/fetchVerificationStatus";
 
-    /** Service to fetch all brand names */
+    /**
+     * Service to fetch all brand names
+     */
     public static final String SHOP_BY_BRANDS_SERVICE = "ulta/mobile/catalog/MobileCatalogServices/shopByBrands";
 
-    /** Service for fetching items of selected brand */
+    /**
+     * Service for fetching items of selected brand
+     */
     public static final String FETCH_PRODUCTS_FOR_BRAND = "ulta/mobile/search/Search/fetchProductsForBrand";
 
-    /** Service for product search using keyword */
+    /**
+     * Service for product search using keyword
+     */
     public static final String KEYWORD_SEARCH_SERVICE = "ulta/mobile/search/Search/fetchProductsForKeyword";
 
-    /** Service for fetching products of selected leaf category */
+    /**
+     * Service for fetching products of selected leaf category
+     */
     public static final String FETCH_PRODUCTS_FOR_LEAF_CATEGORY = "ulta/mobile/search/Search/fetchProductsForLeafCategory";
 
     public static final String FETCH_PRODUCTS_FOR_GWP_FROM_SALE = "ulta/mobile/search/Search/GWPLandingPage";
@@ -560,100 +704,162 @@ public class WebserviceConstants {
     public static final String EXPRESS_CHECKOUT_PRODUCTION_URL = "https://www.paypal.com/cgi-bin/webscr?cmd=_express-checkout-mobile&token=";
     // **************End of New Web services for 3.3 release ****************//
 
-    /** Service for state list. */
+    /**
+     * Service for state list.
+     */
     public static final String STATE_LIST_SERVICE = "atg/userprofiling/MyAccount/stateList?";
 
-    /** Service for order history. */
+    /**
+     * Service for order history.
+     */
     public static final String ORDER_HISTORY = "ulta/mobile/order/OrderHistory/fetchOrderHistory";
 
-    /** Service for order details. */
+    /**
+     * Service for order details.
+     */
     public static final String ORDER_DETAIL = "atg/commerce/ShoppingCart/fetchOrderDetails";
 
-    /** Service for getting the rootcategorydetails. */
+    /**
+     * Service for getting the rootcategorydetails.
+     */
     public static final String ROOTCATEGORYDETAILS_SERVICE = "ulta/mobile/catalog/MobileCatalogServices/getRootCategories";
 
-    /** Service for add to cart. */
+    /**
+     * Service for add to cart.
+     */
     public static final String ADDITEMTOORDER_SERVICE = "atg/commerce/order/purchase/CartModifierFormHandler/addItemToOrder";
 
-    /** Service for view cart. */
+    /**
+     * Service for view cart.
+     */
     public static final String GETMOBILECART_SERVICE = "atg/commerce/ShoppingCart/mobileCart?";
 
-    /** Service to update quantity. */
+    /**
+     * Service to update quantity.
+     */
     public static final String UPDATE_SERVICE = "atg/commerce/order/purchase/CartModifierFormHandler/update";
 
-    /** Service to remove coupon. */
+    /**
+     * Service to remove coupon.
+     */
     public static final String REMOVE_COUPON = "atg/commerce/order/purchase/CartModifierFormHandler/removeCoupon";
 
-    /** Service to fetch free samples. */
+    /**
+     * Service to fetch free samples.
+     */
     public static final String FETCHFREESAMPLES_SERVICE = "ulta/mobile/catalog/MobileCatalogServices/fetchFreeSamples";
 
-    /** Service to fetch free samples. */
+    /**
+     * Service to fetch free samples.
+     */
     public static final String ADD_FREESAMPLES_FORMOBILE_SERVICE = "atg/commerce/order/purchase/CartModifierFormHandler/addFreeSamplesForMobile";
 
-    /** Service to remove item from cart. */
+    /**
+     * Service to remove item from cart.
+     */
     public static final String REMOVEITEM_FROM_ORDERBY_RELATIONSHIPID_SERVICE = "atg/commerce/order/purchase/CartModifierFormHandler/removeItem";
 
-    /** Service for getting the myProfiledetails. */
+    /**
+     * Service for getting the myProfiledetails.
+     */
     public static final String MY_PROFILE_DETAILS_SERVICE = "atg/userprofiling/MyAccount/personalInfo?";
 
-    /** Service for getting the MyPreffredShippingaddressdetails. */
+    /**
+     * Service for getting the MyPreffredShippingaddressdetails.
+     */
     public static final String PREFFRED_SHIPPING_ADDRESS_DETAILS_SERVICE = "atg/userprofiling/MyAccount/defaultShippingAddress?";
 
-    /** Service for applying the GiftCard */
+    /**
+     * Service for applying the GiftCard
+     */
     public static final String APPLY_GIFT_CARD = "atg/commerce/order/purchase/PaymentGroupFormHandler/applyGiftCard";
 
-    /** Service for removing the GiftCard */
+    /**
+     * Service for removing the GiftCard
+     */
     public static final String REMOVE_GIFT_CARD = "atg/commerce/order/purchase/PaymentGroupFormHandler/removeGiftCard";
 
-    /** Service for getting the MyPreffredBillingaddressdetails. */
+    /**
+     * Service for getting the MyPreffredBillingaddressdetails.
+     */
     public static final String PREFFRED_BILLING_ADDRESS_DETAILS_SERVICE = "atg/userprofiling/MyAccount/billingAddress?";
 
-    /** Service for getting the current Ads URL. */
+    /**
+     * Service for getting the current Ads URL.
+     */
     public static final String CURRENT_ADS_URL = UltaDataCache
             .getDataCacheInstance().getCurrentAdsURL();
 
-    /** Service for getting List of Free Gifts */
+    /**
+     * Service for getting List of Free Gifts
+     */
     public static final String FREEGIFTDETAILS_SERVICE = "ulta/mobile/catalog/MobileCatalogServices/fetchFreeGifts";
 
-    /** Service for getting the List of shipping addresses . */
+    /**
+     * Service for getting the List of shipping addresses .
+     */
     public static final String LISTOF_SHIPPING_ADDRESS_SERVICE = "atg/userprofiling/MyAccount/shippingAddresses?";
 
-    /** Service for Adding new shipping address . */
+    /**
+     * Service for Adding new shipping address .
+     */
     public static final String ADD_NEW_SHIPPING_ADDRESS_SERVICE = "atg/userprofiling/B2CProfileFormHandler/ultaNewAddress";
 
-    /** Service for Delete shipping address . */
+    /**
+     * Service for Delete shipping address .
+     */
     public static final String DELETE_SHIPPING_ADDRESS_SERVICE = "atg/userprofiling/B2CProfileFormHandler/removeAddress";
 
-    /** Service for setting default shipping address . */
+    /**
+     * Service for setting default shipping address .
+     */
     public static final String EDIT_SHIPPING_ADDRESS_SERVICE = "atg/userprofiling/B2CProfileFormHandler/ultaUpdateAddress";
 
-    /** Service for setting default shipping address . */
+    /**
+     * Service for setting default shipping address .
+     */
     public static final String SET_AS_DEFAULT_SHIPPING_ADDRESS_SERVICE = "atg/userprofiling/B2CProfileFormHandler/defaultShippingAddress";
-    /** Service for Checking Gif Card Balance . */
+    /**
+     * Service for Checking Gif Card Balance .
+     */
     public static final String CHECK_BALANCE = "ulta/common/UltaGiftCardFormHandler/checkBalance";
 
-    /** Service for getting the MyPreffredShippingaddressdetails. */
+    /**
+     * Service for getting the MyPreffredShippingaddressdetails.
+     */
     public static final String PAYMENT_METHOD_DETAILS_SERVICE = "atg/userprofiling/MyAccount/creditCards?";
 
-    /** Service for setting default shipping address . */
+    /**
+     * Service for setting default shipping address .
+     */
     public static final String ADD_NEW_CREDIT_CARD_SERVICE = "atg/userprofiling/B2CProfileFormHandler/ultaCreateNewCreditCard";
 
-    /** Service for setting default shipping address . */
+    /**
+     * Service for setting default shipping address .
+     */
     public static final String EDIT_CREDIT_CARD_SERVICE = "atg/userprofiling/B2CProfileFormHandler/ultaUpdateCard";
 
-    /** Service for setting default shipping address . */
+    /**
+     * Service for setting default shipping address .
+     */
     public static final String SET_AS_DEFAULT_CREDIT_CARD_SERVICE = "atg/userprofiling/B2CProfileFormHandler/defaultCard";
 
-    /** Service for Delete shipping address . */
+    /**
+     * Service for Delete shipping address .
+     */
     public static final String DELETE_CREDIT_CARD_SERVICE = "atg/userprofiling/B2CProfileFormHandler/removeCard";
 
-    /** Service for getting the stores . */
+    /**
+     * Service for getting the stores .
+     */
     // public static final String
     // GET_STORE="ulta/mobile/utils/StoreLocatorFilter/fetchStore";
 
     public static final String GET_STORE = "ulta/mobile/storelocator/StoreLocatorFilter/fetchStores";
 
-    /** Service for Electronic Gift Card. */
+    /**
+     * Service for Electronic Gift Card.
+     */
     public static final String ELECTRONIC_GIFT_CARD = "atg/commerce/order/ShoppingCartModifier/addEGiftCardToOrder";
 
     public static final String SAMPLE_EGIFT_CARD_LINK = "ulta/img/prodDetail/e-giftcard_sample.jpg";
@@ -720,7 +926,9 @@ public class WebserviceConstants {
      */
     public static final String DO_RTI_CHECK = "ulta/mobile/utils/MobileTools/doRTICheck";
 
-    /** API KEY for questions and answers API */
+    /**
+     * API KEY for questions and answers API
+     */
     public static final String API_KEY_FOR_QnA = "c2187904-4cf2-4273-8052-eaa9ccc9d4fa";
 
     /**

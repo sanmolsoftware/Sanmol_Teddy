@@ -5,15 +5,15 @@
     android:layout_height="wrap_content"
     android:background="#ffffff"
     android:orientation="vertical"
-    tools:context=".core.activity.product.PinchZoomActivity" >
+    tools:context=".core.activity.product.PinchZoomActivity">
 
     <LinearLayout
         android:id="@+id/menu_row"
         style="@style/side_menu_margin"
         android:layout_width="fill_parent"
-        android:layout_height="48dp"
+        android:layout_height="wrap_content"
         android:background="@drawable/sidemenu_click_highlight"
-        android:orientation="horizontal" >
+        android:orientation="horizontal">
 
         <ImageView
             android:id="@+id/menu_icon"
@@ -21,27 +21,57 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:contentDescription="@string/description"
-            android:src="@drawable/ic_launcher" >
-        </ImageView>
+            android:src="@drawable/ic_launcher"></ImageView>
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:orientation="horizontal" >
+            android:orientation="horizontal">
 
-            <TextView
-                android:id="@+id/menu_string"
-                style="@style/textview_side_menu"
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_marginLeft="20dp"
-                android:layout_marginStart="20dp"
-                android:gravity="center_vertical"
-                android:paddingTop="4dp"
-                android:textAppearance="?android:attr/textAppearanceMedium" >
-            </TextView>
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/menu_string"
+                    style="@style/textview_side_menu"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginStart="20dp"
+                    android:gravity="center_vertical"
+                    android:paddingTop="4dp"
+                    android:textAppearance="?android:attr/textAppearanceMedium"></TextView>
+
+                <TextView
+                    android:id="@+id/hiName"
+                    style="@style/textview_side_menu"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginStart="20dp"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/melon"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:visibility="gone"></TextView>
+
+                <TextView
+                    android:id="@+id/viewDetail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginStart="20dp"
+                    android:text="View Details!"
+                    android:textColor="@color/melon"
+                    android:textSize="10sp"
+                    android:visibility="gone" />
+
+            </LinearLayout>
 
             <TextView
                 android:id="@+id/menu_string_new"
@@ -55,10 +85,11 @@
                 android:paddingTop="4dp"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:textColor="@color/jaffa"
-                android:visibility="gone" >
-            </TextView>
+                android:visibility="gone"></TextView>
         </LinearLayout>
+
     </LinearLayout>
+
 
     <View
         android:id="@+id/dividerview"

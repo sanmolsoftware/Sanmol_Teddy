@@ -17,6 +17,7 @@ import android.os.Message;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Base64;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -35,7 +36,6 @@ import com.ulta.core.activity.checkout.AddShippingAddressLogginUserActivity;
 import com.ulta.core.activity.myprofile.FavoritesActivity;
 import com.ulta.core.activity.product.FreeSamplesActivity;
 import com.ulta.core.activity.product.HomeActivity;
-import com.ulta.core.activity.rewards.NonSignedInRewardsActivity;
 import com.ulta.core.activity.rewards.RewardsActivity;
 import com.ulta.core.bean.account.LoginBean;
 import com.ulta.core.bean.account.ProfileBean;
@@ -67,7 +67,9 @@ import static com.ulta.core.conf.UltaConstants.LOADING_PROGRESS_TEXT;
 public class LoginActivity extends UltaBaseActivity implements OnClickListener,
         OnSessionTimeOut, TextWatcher {
 
-    /** The req code checkout register. */
+    /**
+     * The req code checkout register.
+     */
     private static int REQ_CODE_FAVORITES_REGISTER = 10;
     private static final int REQ_CODE_LOGIN_REWARDS = 222;
     private static int REQ_CODE_REGISTER = 190;
@@ -77,52 +79,72 @@ public class LoginActivity extends UltaBaseActivity implements OnClickListener,
 
     private static final int REQ_CODE_UPLOAD = 111;
 
-    /** The username length error message. */
+    /**
+     * The username length error message.
+     */
     private static String USERNAME_LENGTH_ERROR_MESSAGE = "Please enter your User name to Login";
 
     /** The email validation message. */
     // private static String EMAIL_VALIDATION_MESSAGE = "Invalid Email Entered";
 
-    /** The password length error message. */
+    /**
+     * The password length error message.
+     */
     private static String PASSWORD_LENGTH_ERROR_MESSAGE = "Please enter your password to Login";
 
     /** The login error title. */
     /* private static String LOGIN_ERROR_TITLE = "Login Failed"; */
 
     /** The login error message. */
-	/*
+    /*
 	 * private static String LOGIN_ERROR_MESSAGE =
 	 * "Please check your password or username";
 	 */
 
-    /** The btn register. */
+    /**
+     * The btn register.
+     */
     private Button btnLogin, btnRegister, btnGuest;
 
-    /** The edit username. */
+    /**
+     * The edit username.
+     */
     private EditText editPasswordLogin, editUsername;
 
-    /** The txt forgot username. */
+    /**
+     * The txt forgot username.
+     */
     private TextView txtForgotUsername, txtOr;
 
     /** String to hold user entered mail id */
 	/* private String guestEmail; */
-    /** The alert dialog. */
+    /**
+     * The alert dialog.
+     */
     AlertDialog alertDialog;
 
     private ProgressDialog pd;
 
     // private ProgressDialog rewardsProgressDialog;
 
-    /** The username. */
+    /**
+     * The username.
+     */
     private String username;
 
-    /** The password login. */
+    /**
+     * The password login.
+     */
     private String passwordLogin;
 
-    /** The origin. */
+    /**
+     * The origin.
+     */
     String origin, check;
 
-    /** The origin. */
+    /**
+     * The origin.
+     */
     int fromCehckout;
     boolean isFromPayPal;
     // private UemAction loginAction;
@@ -143,7 +165,9 @@ public class LoginActivity extends UltaBaseActivity implements OnClickListener,
 
     private byte[] loginUserNameBytes;
 
-    /** The profile bean. */
+    /**
+     * The profile bean.
+     */
     private ProfileBean profileBean;
 
     private String beautyClubMember;
@@ -378,10 +402,8 @@ public class LoginActivity extends UltaBaseActivity implements OnClickListener,
     /**
      * Invoke login.
      *
-     * @param username
-     *            the username
-     * @param passwordLogin
-     *            the password login
+     * @param username      the username
+     * @param passwordLogin the password login
      */
     private void invokeLogin(String username, String passwordLogin,
                              String registrationId, boolean isActive) {
@@ -407,10 +429,8 @@ public class LoginActivity extends UltaBaseActivity implements OnClickListener,
     /**
      * Method to populate the URL parameter map.
      *
-     * @param username
-     *            the username
-     * @param passwordLogin
-     *            the password login
+     * @param username      the username
+     * @param passwordLogin the password login
      * @return Map<String, String>
      */
     private Map<String, String> populateLoginParameters(String username,
@@ -443,8 +463,7 @@ public class LoginActivity extends UltaBaseActivity implements OnClickListener,
         /**
          * Handle message.
          *
-         * @param msg
-         *            the msg
+         * @param msg the msg
          * @see android.os.Handler#handleMessage(android.os.Message)
          */
         public void handleMessage(Message msg) {
@@ -752,13 +771,11 @@ public class LoginActivity extends UltaBaseActivity implements OnClickListener,
                         setResult(RESULT_OK);
                         finish();
 
-                    }
-                    else if (null != origin
+                    } else if (null != origin
                             && origin.equalsIgnoreCase("isfromApplyUltamateCard")) {
-                            setResult(RESULT_OK);
-                            finish();
-                    }
-                    else if (null != origin
+                        setResult(RESULT_OK);
+                        finish();
+                    } else if (null != origin
                             && origin.equalsIgnoreCase("homeScreen")) {
 
                         Intent homeIntent = new Intent(LoginActivity.this,
@@ -886,6 +903,7 @@ public class LoginActivity extends UltaBaseActivity implements OnClickListener,
                         | Intent.FLAG_ACTIVITY_BROUGHT_TO_FRONT);
                 Logger.Log("<<<<" + origin);
                 registerIntent.putExtra("check", check);
+
                 if (null != origin && origin.equalsIgnoreCase("basket")
                         && fromCehckout != 2) {
                     registerIntent.putExtra("origin", origin);
@@ -945,15 +963,15 @@ public class LoginActivity extends UltaBaseActivity implements OnClickListener,
                     startActivityForResult(registerIntent, REQ_CODE_LOGIN_REWARDS);
                     setResult(RESULT_OK);
                     finish();
-                }
-                else if (null != origin
+                } else if (null != origin
                         && origin.equalsIgnoreCase("isfromApplyUltamateCard")) {
-                        registerIntent.putExtra("origin", "isfromApplyUltamateCard");
-                        startActivityForResult(registerIntent, REQ_CODE_LOGIN_ULTAMATE_CARD_APPLY);
-                        setResult(RESULT_OK);
-                        finish();
-                }
-                else if (null != origin
+
+                    Log.d("Hiii", "REQ_CODE_LOGIN_ULTAMATE_CARD_APPLY");
+                    registerIntent.putExtra("origin", "isfromApplyUltamateCard");
+                    startActivityForResult(registerIntent, REQ_CODE_LOGIN_ULTAMATE_CARD_APPLY);
+                    setResult(RESULT_OK);
+                    finish();
+                } else if (null != origin
                         && origin.equalsIgnoreCase("fromProductFavotitesTap")) {
                     registerIntent.putExtra("origin", "fromProductFavotitesTap");
                     startActivity(registerIntent);
@@ -1032,8 +1050,7 @@ public class LoginActivity extends UltaBaseActivity implements OnClickListener,
         /**
          * Handle message.
          *
-         * @param msg
-         *            the msg
+         * @param msg the msg
          * @see android.os.Handler#handleMessage(android.os.Message)
          */
         public void handleMessage(Message msg) {
